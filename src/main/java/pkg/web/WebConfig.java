@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import pkg.web.controller.interceptor.DumbInterceptor;
+import pkg.web.auth.OAuth2Interceptor;
 
 import java.util.List;
 
