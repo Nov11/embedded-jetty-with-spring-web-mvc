@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import pkg.web.controller.interceptor.DumbInterceptor;
 import pkg.web.auth.OAuth2Interceptor;
 
+import java.net.URL;
 import java.util.List;
 
 @Configuration
@@ -62,7 +63,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public FreeMarkerViewResolver freemarkerViewResolver() {
         FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
-        resolver.setCache(true);
+        resolver.setCache(false);
         resolver.setPrefix("");
         resolver.setSuffix(".ftl");
         return resolver;
@@ -71,7 +72,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
-        freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/views/ftl/");
+        freeMarkerConfigurer.setTemplateLoaderPath("classpath:WEB-INF/views/ftl/");
         return freeMarkerConfigurer;
+    }
+
+    public static void main(String[] args) {
+        String path = WebConfig.class
+                .getClassLoader()
+                .getResource("logback.xml")
+                .getFile();
+        System.out.println(path);
     }
 }

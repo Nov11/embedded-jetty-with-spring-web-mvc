@@ -15,7 +15,7 @@ number:${number}<br>
 
 string:${string}<br>
 
-bool:${bool}<br>
+bool:${boolean?c}<br>
 
 
 </body>

@@ -22,13 +22,13 @@ public class WebController {
         return appService.generateMessage();
     }
 
-    @RequestMapping("/freemaker")
+    @RequestMapping("/fm")
     public String freemaker(Model model) {
         List<Long> list = new ArrayList<>();
         list.add(1L);
         list.add(2L);
         model.addAttribute("list", list);
-        model.addAttribute("bool", true);
+        model.addAttribute("boolean", true);
         model.addAttribute("number", 111);
         model.addAttribute("string", "string");
         return "viewname";

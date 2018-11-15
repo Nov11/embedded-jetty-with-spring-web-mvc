@@ -26,9 +26,9 @@ public class WebServer {
         //separate names with blanks if you have multiple config files
         servletContextHandler.setInitParameter("contextConfigLocation", AppConfig.class.getName());
 
-
         Server server = new Server(60000);
         server.setHandler(servletContextHandler);
+        server.setStopAtShutdown(true);
 
         try {
             server.start();
