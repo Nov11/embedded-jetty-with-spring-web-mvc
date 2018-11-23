@@ -1,5 +1,7 @@
 package pkg.web.auth;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -39,9 +41,12 @@ public class OAuth2Controller {
         map.add("redirect_uri", REDIRECT_URL);
         map.add("client_id", CLIENT_ID);
         map.add("client_secret", CLIENT_SECRET);
+        HttpHeaders tokenHeaders = new HttpHeaders();
+        HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map, tokenHeaders);
         AccessToken accessToken = restTemplate.postForObject(TOKEN, map, AccessToken.class);
 
-        //access token to profile
+        //convert access token to profile
+        //usually by accessing provider url/token
 
         //save profile info into something, like a cookie
 
