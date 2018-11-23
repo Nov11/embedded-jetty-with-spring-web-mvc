@@ -41,6 +41,13 @@ public class OAuth2Controller {
         map.add("client_secret", CLIENT_SECRET);
         AccessToken accessToken = restTemplate.postForObject(TOKEN, map, AccessToken.class);
 
+        //access token to profile
+
+        //save profile info into something, like a cookie
+
+        //if on requesting resource, the target url has been saved.
+        //retrieve it and redirect to there
+
         response.sendRedirect(String.format("/?access_token={%s}", accessToken.getAccessToken()));
 
         return "auth success";

@@ -63,6 +63,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setCache(false);
         resolver.setPrefix("");
         resolver.setSuffix(".ftl");
+        resolver.setContentType("text/html;charset=UTF-8");
         return resolver;
     }
 
@@ -75,7 +76,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("classpath:WEB-INF/css/");
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("classpath:WEB-INF/css/");
     }
 
     public static void main(String[] args) {
