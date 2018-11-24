@@ -71,6 +71,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:WEB-INF/views/ftl/");
+        freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         return freeMarkerConfigurer;
     }
 
